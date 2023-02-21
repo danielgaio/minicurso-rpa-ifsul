@@ -16,3 +16,7 @@ Instalar dependências:
 > pip install -r requirements.txt
 
 Executar o arquivo main.py dentro de src
+
+Exportar dependencias:
+
+> python3 -m pip freeze > requirements.txt

@@ -16,6 +16,7 @@ class Browser:
         search_box = self.driver.find_element(By.XPATH, '/html/body/div[1]/header/nav/section/section[2]/form/section[1]/input')
         search_box.send_keys(job)
         search_box.send_keys(Keys.RETURN)
+        print('Busca concluida.')
 
     def get_jobs_list(self):
         jobs_list = self.driver.find_elements(By.XPATH, '//*[@id="main-content"]/section/ul/li')
@@ -49,4 +50,5 @@ class Browser:
             }
             jobs_information.append(job_information)
 
+        print('Coleta de informações concluida.')
         return jobs_information
