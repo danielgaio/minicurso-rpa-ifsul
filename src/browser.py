@@ -40,14 +40,24 @@ class Browser:
                 job.find_element(By.TAG_NAME, 'a').click()
                 time.sleep(1)
 
-            job_information = {
-                'job_title': self.driver.find_element(By.XPATH, '/html/body/div[1]/div/section/div[2]/section/div/div[1]/div/a/h2').text,
-                'long_description': self.driver.find_element(By.XPATH, '/html/body/div[1]/div/section/div[2]/div/section[1]/div/div/section/div').text,
-                'experience_level': self.driver.find_element(By.XPATH, '/html/body/div[1]/div/section/div[2]/div/section[1]/div/ul/li[1]/span').text,
-                'job_type': self.driver.find_element(By.XPATH, '/html/body/div[1]/div/section/div[2]/div/section[1]/div/ul/li[2]/span').text,
-                'role': self.driver.find_element(By.XPATH, '/html/body/div[1]/div/section/div[2]/div/section[1]/div/ul/li[3]/span').text,
-                'sector': self.driver.find_element(By.XPATH, '/html/body/div[1]/div/section/div[2]/div/section[1]/div/ul/li[4]/span').text
-            }
+            try:
+                job_information = {
+                    'job_title': self.driver.find_element(By.XPATH, '/html/body/div[1]/div/section/div[2]/section/div/div[1]/div/a/h2').text,
+                    'long_description': self.driver.find_element(By.XPATH, '/html/body/div[1]/div/section/div[2]/div/section[1]/div/div/section/div').text,
+                    'experience_level': self.driver.find_element(By.XPATH, '/html/body/div[1]/div/section/div[2]/div/section[1]/div/ul/li[1]/span').text,
+                    'job_type': self.driver.find_element(By.XPATH, '/html/body/div[1]/div/section/div[2]/div/section[1]/div/ul/li[2]/span').text,
+                    'role': self.driver.find_element(By.XPATH, '/html/body/div[1]/div/section/div[2]/div/section[1]/div/ul/li[3]/span').text,
+                    'sector': self.driver.find_element(By.XPATH, '/html/body/div[1]/div/section/div[2]/div/section[1]/div/ul/li[4]/span').text
+                }
+            except:
+                job_information = {
+                    'job_title': '-',
+                    'long_description': '-',
+                    'experience_level': '-',
+                    'job_type': '-',
+                    'role': '-',
+                    'sector': '-'
+                }
             jobs_information.append(job_information)
 
         print('Coleta de informações concluida.')
